@@ -1,16 +1,12 @@
 import React from 'react';
+import POSTER_URL from '../utils/PosterUrl'
 import './poster.css';
 
 const Poster = ({
-  color,
   index,
-  index1,
-  index2,
-  index3,
-  url,
   }) => (
     <div className="poster">
-      <img src={url} alt={index2} />
+      <img src={POSTER_URL[index]} alt="poster" />
     </div>
 );
 export default Poster;

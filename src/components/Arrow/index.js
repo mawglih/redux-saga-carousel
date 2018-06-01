@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './arrow.css';
 
 const Arrow = ({
   direction,
+  click,
+  arrowColor,
 }) => (
-  <Fragment>
+  <div onClick={click} role="button">
     <button className="button" />
     <div className={direction} />
-  </Fragment>
+  </div>
 );
 export default Arrow;
