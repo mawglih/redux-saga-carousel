@@ -1,4 +1,6 @@
 import React, { Component, Children, cloneElement, Fragment } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import Item from '../Item';
 import Arrow from '../Arrow';
 
@@ -91,4 +93,13 @@ class Carousel extends Component {
   );
 }
 }
-export default Carousel;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    currentIndex: state.currentIndex,
+    currentIndex1: state.currentIndex1,
+    currentIndex2: state.currentIndex2,
+    currentIndex3: state.currentIndex3,
+  };
+}
+export default connect(mapStateToProps, actions)(Carousel);
