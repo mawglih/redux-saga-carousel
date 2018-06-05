@@ -13,7 +13,7 @@ export const nextSlide = (index) => {
     };
   }
 }
-export const prevSlide = (lastIndex) => {
+export const prevSlide = (index) => {
   if(index === 0) {
     return {
       type: PREV_SLIDE,
