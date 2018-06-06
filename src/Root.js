@@ -7,7 +7,10 @@ export default ({
   children,
   initialState,
 }) => (
-  <Provider store={createStore(reducers, initialState)}>
+  <Provider
+    store={createStore(reducers, initialState,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),)}
+  >
     {children}
   </Provider>
 );
