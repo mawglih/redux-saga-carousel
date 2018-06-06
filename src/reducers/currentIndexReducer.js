@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   const lastIndex = 9;
   console.log("last index", lastIndex);
+  console.log("length", state.length);
   console.log("payload", action.payload);
   switch (action.type) {
     case actionTypes.NEXT_SLIDE:

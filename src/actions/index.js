@@ -1,11 +1,11 @@
 import { NEXT_SLIDE, PREV_SLIDE } from './types';
-export const nextSlide = (index) => {
+export const nextSlide = (length) => {
     return {
       type: NEXT_SLIDE,
       payload: length,
     };
 }
-export const prevSlide = (index) => {
+export const prevSlide = (length) => {
     return {
       type: PREV_SLIDE,
       payload: length,

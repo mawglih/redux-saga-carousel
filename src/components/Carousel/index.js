@@ -5,46 +5,9 @@ import Item from '../Item';
 import Arrow from '../Arrow';
 
 class Carousel extends Component {
-  //   this.state = {
-  //     currentIndex: 0,
-  //     currentIndex1: 1,
-  //     currentIndex2: 2,
-  //     currentIndex3: 3,
-  //   }
-  //   this.previousSlide = this.previousSlide.bind(this);
-  //   this.nextSlide = this.nextSlide.bind(this);
-  // }
-  // previousSlide() {
-  //   const lastIndex = this.props.length - 1;
-  //   const index = this.state.currentIndex === 0 ? lastIndex : this.state.currentIndex - 1;
-  //   const index1 = this.state.currentIndex1 === 0 ? lastIndex : this.state.currentIndex1 - 1;
-  //   const index2 = this.state.currentIndex2 === 0 ? lastIndex : this.state.currentIndex2 - 1;
-  //   const index3 = this.state.currentIndex3 === 0 ? lastIndex : this.state.currentIndex3 - 1;
-  //   this.setState({
-  //     currentIndex: index,
-  //     currentIndex1: index1,
-  //     currentIndex2: index2,
-  //     currentIndex3: index3,
-  //   });
-  // }
-  // nextSlide() {
-  //   const lastIndex = this.props.length - 1;
-  //   const index = this.state.currentIndex === lastIndex ? 0 : this.state.currentIndex + 1;
-  //   const index1 = this.state.currentIndex1 === lastIndex ? 0 : this.state.currentIndex1 + 1;
-  //   const index2 = this.state.currentIndex2 === lastIndex ? 0 : this.state.currentIndex2 + 1;
-  //   const index3 = this.state.currentIndex3 === lastIndex ? 0 : this.state.currentIndex3 + 1;
-  //   this.setState({
-  //     currentIndex: index,
-  //     currentIndex1: index1,
-  //     currentIndex2: index2,
-  //     currentIndex3: index3,
-  //   });
-  // }
-
   render() {
     console.log("initial state", this.props);
     const {
-      length,
       children,
       arrowColor,
       onNextSlide,
@@ -94,19 +57,20 @@ class Carousel extends Component {
   );
 }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   console.log("mapState", state);
   return {
+    length: props.length,
     currentIndex: state.currentIndex,
     currentIndex1: state.currentIndex1,
     currentIndex2: state.currentIndex2,
     currentIndex3: state.currentIndex3,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, props) => {
   return {
-    onPreviousSlide: () => dispatch({type: actionTypes.PREV_SLIDE, length:10}),
-    onNextSlide: () => dispatch({type: actionTypes.NEXT_SLIDE, length:10})
+    onPreviousSlide: () => dispatch({type: actionTypes.PREV_SLIDE, length: props.length}),
+    onNextSlide: () => dispatch({type: actionTypes.NEXT_SLIDE, length: props.length})
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Carousel);
