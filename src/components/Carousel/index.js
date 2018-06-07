@@ -57,20 +57,19 @@ class Carousel extends Component {
   );
 }
 }
-const mapStateToProps = (state, props) => {
-  console.log("mapState", state);
+const mapStateToProps = (state, ownProps) => {
   return {
-    length: props.length,
+    length: ownProps.length,
     currentIndex: state.currentIndex,
     currentIndex1: state.currentIndex1,
     currentIndex2: state.currentIndex2,
     currentIndex3: state.currentIndex3,
   };
 };
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onPreviousSlide: () => dispatch({type: actionTypes.PREV_SLIDE, length: props.length}),
-    onNextSlide: () => dispatch({type: actionTypes.NEXT_SLIDE, length: props.length})
+    onPreviousSlide: () => dispatch({type: actionTypes.PREV_SLIDE, length: ownProps.length}),
+    onNextSlide: () => dispatch({type: actionTypes.NEXT_SLIDE, length: ownProps.length})
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Carousel);

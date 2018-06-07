@@ -7,26 +7,31 @@ const INITIAL_STATE = {
   currentIndex3: 3,
 }
 export default (state = INITIAL_STATE, action) => {
-  const lastIndex = 9;
-  console.log("last index", lastIndex);
-  console.log("length", state.length);
-  console.log("payload", action.payload);
+
+  // console.log("last index", lastIndex);
+  // console.log("length Reducer", action.length);
+  // console.log("payload reducer", action.payload);
   switch (action.type) {
+    // const lastIndex = action.length - 1;
     case actionTypes.NEXT_SLIDE:
+    // console.log("last index", lastIndex);
+    // console.log("length Reducer", action.length);
+    // console.log("payload reducer", action.payload);
+
       return {
         ...state,
-        currentIndex: state.currentIndex === lastIndex ? 0 : state.currentIndex + 1,
-        currentIndex1: state.currentIndex1 === lastIndex ? 0 : state.currentIndex1 + 1,
-        currentIndex2: state.currentIndex2 === lastIndex ? 0 : state.currentIndex2 + 1,
-        currentIndex3: state.currentIndex3 === lastIndex ? 0 : state.currentIndex3 + 1,
+        currentIndex: state.currentIndex === action.length - 1 ? 0 : state.currentIndex + 1,
+        currentIndex1: state.currentIndex1 === action.length - 1 ? 0 : state.currentIndex1 + 1,
+        currentIndex2: state.currentIndex2 === action.length - 1 ? 0 : state.currentIndex2 + 1,
+        currentIndex3: state.currentIndex3 === action.length - 1 ? 0 : state.currentIndex3 + 1,
       };
     case actionTypes.PREV_SLIDE:
       return {
         ...state,
-        currentIndex: state.currentIndex === 0 ? lastIndex : state.currentIndex - 1,
-        currentIndex1: state.currentIndex1 === 0 ? lastIndex : state.currentIndex1 - 1,
-        currentIndex2: state.currentIndex2 === 0 ? lastIndex : state.currentIndex2 - 1,
-        currentIndex3: state.currentIndex3 === 0 ? lastIndex : state.currentIndex3 - 1,
+        currentIndex: state.currentIndex === 0 ? action.length - 1 : state.currentIndex - 1,
+        currentIndex1: state.currentIndex1 === 0 ? action.length - 1 : state.currentIndex1 - 1,
+        currentIndex2: state.currentIndex2 === 0 ? action.length - 1 : state.currentIndex2 - 1,
+        currentIndex3: state.currentIndex3 === 0 ? action.length - 1 : state.currentIndex3 - 1,
       };
     default:
       return state;
