@@ -7,17 +7,8 @@ const INITIAL_STATE = {
   currentIndex3: 3,
 }
 export default (state = INITIAL_STATE, action) => {
-
-  // console.log("last index", lastIndex);
-  // console.log("length Reducer", action.length);
-  // console.log("payload reducer", action.payload);
   switch (action.type) {
-    // const lastIndex = action.length - 1;
     case actionTypes.NEXT_SLIDE:
-    // console.log("last index", lastIndex);
-    // console.log("length Reducer", action.length);
-    // console.log("payload reducer", action.payload);
-
       return {
         ...state,
         currentIndex: state.currentIndex === action.length - 1 ? 0 : state.currentIndex + 1,
