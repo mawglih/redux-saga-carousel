@@ -1,12 +1,14 @@
-function* slide(action) {
-  yield setTimeout() {
+import { put } from 'redux-saga/effects';
+import * as actionTypes from '../actions/types';
 
-  }
+export function* nextSaga(action) {
+  yield put({
+    type: actionTypes.NEXT_SLIDE
+  });
 }
 
-export const nextSlide = (length) => {
-    return {
-      type: NEXT_SLIDE,
-      payload: length,
-    };
+export function* previousSaga(action) {
+  yield put({
+    type: actionTypes.PREV_SLIDE
+  });
 }
